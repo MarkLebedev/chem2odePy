@@ -1,21 +1,32 @@
 species:
-- S1
-- S2
-- S3
+  - S1
+  - S2
+  - S3
 reactions:
--
-  reagents:
-  - Nr1R1
-  - Nr2R2
-  products:
-  - Np1P1
-  - Np2P2
-  reversible: true
--
-  reagents:
-  - Nr1R1
-  - Nr2R2
-  products:
-  - Np1P1
-  - Np2P2
-  reversible: false
+  -
+    reagents:
+      - Nr1_R1
+      - Nr2_R2
+    products:
+      - Np1_P1
+      - Np2_P2
+    reversible: True
+    rates:
+      - k1
+      - k-1
+  -
+    reagents:
+      - Nr1_R1
+      - Nr2_R2
+    products:
+      - Np1_P1
+      - Np2_P2
+    reversible: False
+    rates:
+      - k2
+      -
+
+# reagent/product syntaxes - {Number}_{Name}
+# reversible - boolean True/False (capitalized)
+# rates - fortran-style floats (nDm = n*10^m - double precision). 2 in case of reversible reactions, otherwise, leave second empty
+# if rates are unknown - use ki/k-i for forward/backward reactions

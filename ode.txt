@@ -1,0 +1,5 @@
+YDOT(A) = -2*k1*Y(A)*Y(A)*Y(B) +2*k-1*Y(C)*Y(C)*Y(C)
+YDOT(B) = -1*k1*Y(A)*Y(A)*Y(B) +1*k-1*Y(C)*Y(C)*Y(C) +3*k2*Y(C)*Y(C)*Y(D) -3*k-2*Y(B)*Y(B)*Y(B) -2*k3*Y(B)*Y(B)*Y(D) +2*k-3*Y(P)*Y(P)
+YDOT(C) = +3*k1*Y(A)*Y(A)*Y(B) -3*k-1*Y(C)*Y(C)*Y(C) -2*k2*Y(C)*Y(C)*Y(D) +2*k-2*Y(B)*Y(B)*Y(B)
+YDOT(D) = -1*k2*Y(C)*Y(C)*Y(D) +1*k-2*Y(B)*Y(B)*Y(B) -1*k3*Y(B)*Y(B)*Y(D) +1*k-3*Y(P)*Y(P)
+YDOT(P) = +2*k3*Y(B)*Y(B)*Y(D) -2*k-3*Y(P)*Y(P)
