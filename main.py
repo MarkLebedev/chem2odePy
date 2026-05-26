@@ -6,7 +6,7 @@ def power(text, power):
         output += text
     return output
 
-stream = open('chemisty.yaml', 'r')
+stream = open('chemistry.yaml', 'r')
 chemistry = yaml.load(stream, Loader=yaml.Loader)
 
 output_string = ""
@@ -47,3 +47,5 @@ for i in chemistry['species']:
 output_string = output_string[:-1]
 with open('ode.txt', 'w') as f:
     f.write(output_string)
+
+print('Done')
