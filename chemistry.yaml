@@ -2,8 +2,6 @@ species:
   - A
   - B
   - C
-  - D
-  - P
 reactions:
   -
     reagents:
@@ -13,25 +11,14 @@ reactions:
       - 3_C
     reversible: True
     rates:
-      - k1
+      - 3D2
       - k-1
-  -
-    reagents:
-      - 2_C
-      - 1_D
+  - reagents:
+      - 1_A
+      - 3_C
     products:
-      - 3_B
+      - 2_B
     reversible: True
     rates:
       - k2
-      - k-2
-  -
-    reagents:
-      - 2_B
-      - 1_D
-    products:
-      - 2_P
-    reversible: True
-    rates:
-      - k3
-      - k-3
+      - 2D4

@@ -1,10 +1,18 @@
 import yaml
+import re
 
 def power(text, power):
     output = ''
     for i in range(power):
         output += text
     return output
+
+def fmult(normalint, fortint):
+    temp = float(fortint.split('D')[0])
+    result = temp*int(normalint)
+    result = str(result)
+    result += "D"+fortint.split('D')[1]
+    return result
 
 stream = open('chemistry.yaml', 'r')
 chemistry = yaml.load(stream, Loader=yaml.Loader)
@@ -16,13 +24,19 @@ for i in chemistry['species']:
     for r in range(len(chemistry['reactions'])):
         for reagent in chemistry['reactions'][r]['reagents']:
             if i in reagent:
-                output_string += f' -{reagent.split('_')[0]}*{chemistry['reactions'][r]['rates'][0]}'
+                if re.search(r"\d*D\d*", chemistry['reactions'][r]['rates'][0]):
+                    output_string += f' -{fmult(reagent.split('_')[0], chemistry['reactions'][r]['rates'][0])}'
+                else:
+                    output_string += f' -{reagent.split('_')[0]}*{chemistry['reactions'][r]['rates'][0]}'
                 for reagent in chemistry['reactions'][r]['reagents']:
                     output_string += power(f'*Y({reagent.split('_')[1]})', int(reagent.split('_')[0]))
                 break
         for product in chemistry['reactions'][r]['products']:
             if i in product:
-                output_string += f' +{product.split('_')[0]}*{chemistry['reactions'][r]['rates'][0]}'
+                if re.search(r"\d*D\d*", chemistry['reactions'][r]['rates'][0]):
+                    output_string += f' +{fmult(product.split('_')[0], chemistry['reactions'][r]['rates'][0])}'
+                else:
+                    output_string += f' +{product.split('_')[0]}*{chemistry['reactions'][r]['rates'][0]}'
                 for reagent in chemistry['reactions'][r]['reagents']:
                     output_string += power(f'*Y({reagent.split('_')[1]})', int(reagent.split('_')[0]))
                 break
@@ -31,13 +45,19 @@ for i in chemistry['species']:
             temp_products = chemistry['reactions'][r]['reagents']
             for reagent in temp_reagents:
                 if i in reagent:
-                    output_string += f' -{reagent.split('_')[0]}*{chemistry['reactions'][r]['rates'][1]}'
+                    if re.search(r"\d*D\d*", chemistry['reactions'][r]['rates'][1]):
+                        output_string += f' -{fmult(reagent.split('_')[0], chemistry['reactions'][r]['rates'][1])}'
+                    else:
+                        output_string += f' -{reagent.split('_')[0]}*{chemistry['reactions'][r]['rates'][1]}'
                     for reagent in temp_reagents:
                         output_string += power(f'*Y({reagent.split('_')[1]})', int(reagent.split('_')[0]))
                     break
             for product in temp_products:
                 if i in product:
-                    output_string += f' +{product.split('_')[0]}*{chemistry['reactions'][r]['rates'][1]}'
+                    if re.search(r"\d*D\d*", chemistry['reactions'][r]['rates'][1]):
+                        output_string += f' +{fmult(product.split('_')[0], chemistry['reactions'][r]['rates'][1])}'
+                    else:
+                        output_string += f' +{product.split('_')[0]}*{chemistry['reactions'][r]['rates'][1]}'
                     for reagent in temp_reagents:
                         output_string += power(f'*Y({reagent.split('_')[1]})', int(reagent.split('_')[0]))
                     break
