@@ -1,5 +1,2 @@
-ifort /compile-only dlsode.f
-link -lib /out:dlsode.lib dlsode.obj
-ifort /Fe".\ode.exe" .\driver.f90 /link dlsode.lib
-
-
+ifort -c dlsode.f
+ifort dlsode.o driver.f90 -o program

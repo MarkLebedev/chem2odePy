@@ -64,6 +64,9 @@ for i in chemistry['species']:
 
     output_string += '\n'
 
+for i in range(len(chemistry['species'])):
+    output_string = output_string.replace(f'Y({chemistry["species"][i]})', f'Y({i + 1})').replace(f'YDOT({chemistry["species"][i]})', f'YDOT({i + 1})')
+
 output_string = output_string[:-1]
 with open('ode.txt', 'w') as f:
     f.write(output_string)

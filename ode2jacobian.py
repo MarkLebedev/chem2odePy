@@ -2,9 +2,6 @@ from chem2ode import *
 
 ode = []
 
-stream = open('chemistry.yaml', 'r')
-chemistry = yaml.load(stream, Loader=yaml.Loader)
-
 with open('ode.txt','r') as file:
     for line in file:
         ode.append(line.strip('\n'))
@@ -12,7 +9,7 @@ with open('ode.txt','r') as file:
 output_string = ''
 for i in range(len(ode)):
     for j in range(len(ode)):
-        target = f'Y({chemistry['species'][j]})'
+        target = f'Y({j+1})'
         line = ode[i].split(' ')
         output = ''
         for element in line:
