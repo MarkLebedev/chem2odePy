@@ -25,7 +25,7 @@ Currently, the package includes 3 main modules for simulation preparation:
 
 ## Preprocessing
 
-For easy use, the package has been compiled for both Windows and Linux (see *Build* folder). To generate the ODE and Jacobian, first fill out the *chemistry.yaml* file with the needed chemical network, then run the appropriate files for your operating system in sequence (*chem2ode_Win.exe* and *ode2jacobian_Win.exe* for Windows or *chem2ode_Linux* and *ode2jacobian_Linux* for Linux). After running the files, you should have *ode.txt* and *jacobian.txt* files in the same folder. 
+For easy use, the package has been compiled for both Windows and Linux (see *Build* folder). To generate the ODE and Jacobian, first fill out the *chemistry.yaml* file with the needed chemical network, then run the appropriate files for your operating system in sequence (*chem2ode_Win.exe* and *ode2jacobian_Win.exe* for Windows or *chem2ode_Linux* and *ode2jacobian_Linux* for Linux). After running the files, you should have *ode.txt* and *jacobian.txt* files in the same folder. For windows, use *Full_Win.exe* to launch both files (better performance).
 
 ## Livermore solver integration
 
