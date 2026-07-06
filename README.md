@@ -11,7 +11,7 @@ Currently, the package includes 3 main modules for simulation preparation:
 
 ## YAML standard
 
-*chemistry_yaml_template.yaml* describes a standardised way of writing down chemical networks using YAML. This standard is infinitely scalable and allows for flexible further integrations. It is intuitive enough for manual construction and can be easily parsed programmatically. *chemistry.yaml* file presents an example of an abstract chemistry network with 3 species and 2 reversible reactions.
+*chemistry_yaml_template.yaml* describes a standardized way of writing down chemical networks using YAML. This standard is infinitely scalable and allows for flexible further integrations. It is intuitive enough for manual construction and can be easily parsed programmatically. *chemistry.yaml* file presents an example of an abstract chemistry network with 3 species and 2 reversible reactions.
 
 ## Network to ODE translator
 
@@ -21,11 +21,11 @@ Currently, the package includes 3 main modules for simulation preparation:
 
 *ode2jacobian.py* file contains Python code of the second translator, which uses both the chemical network (*chemistry.yaml*) and ODE system (*ode.txt*) to produce *jacobian.txt*. *jacobian.txt* contains the Jacobian Matrix written as required by the Livermore ODE solver, which is currently used. The *jacobian.txt* provided shows the Jacobian Matrix derived from the example network and ODE. 
 
-# Onefile build and user manual
+# Build and user manual
 
 ## Preprocessing
 
-For easy use, the package has been compiled for both Windows and Linux (see *onefile build* folder). To generate the ODE and Jacobian, first fill out the *chemistry.yaml* file with the needed chemical network, then run the appropriate files for your operating system in sequence (*chem2ode_Win.exe* and *ode2jacobian_Win.exe* for Windows or *chem2ode_Linux* and *ode2jacobian_Linux* for Linux). After running the files, you should have *ode.txt* and *jacobian.txt* files in the same folder. 
+For easy use, the package has been compiled for both Windows and Linux (see *Build* folder). To generate the ODE and Jacobian, first fill out the *chemistry.yaml* file with the needed chemical network, then run the appropriate files for your operating system in sequence (*chem2ode_Win.exe* and *ode2jacobian_Win.exe* for Windows or *chem2ode_Linux* and *ode2jacobian_Linux* for Linux). After running the files, you should have *ode.txt* and *jacobian.txt* files in the same folder. 
 
 ## Livermore solver integration
 
