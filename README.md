@@ -4,10 +4,13 @@ The main purpose of chem2odePy is to streamline and optimize preprocessing steps
 
 # Package architecture/structure
 
+![img.png](img.png)
+
 Currently, the package includes 3 main modules for simulation preparation:
 1. Chemical network YAML standard
 2. Chemical network to ODE system translator
 3. ODE system to Jacobian Matrix translator
+4. Solver Fortran code generator
 
 ## YAML standard
 
@@ -21,6 +24,13 @@ Currently, the package includes 3 main modules for simulation preparation:
 
 *ode2jacobian.py* file contains Python code of the second translator, which uses both the chemical network (*chemistry.yaml*) and ODE system (*ode.txt*) to produce *jacobian.txt*. *jacobian.txt* contains the Jacobian Matrix written as required by the Livermore ODE solver, which is currently used. The *jacobian.txt* provided shows the Jacobian Matrix derived from the example network and ODE. 
 
+## Solver Fortran code generator
+
+*driver_config_generator.py* file contains Python code that generates a config file with soma variables needed for the simulations. The resulting file (*driver_config.yaml*) includes some default values that can be corrected.
+*driver_constructor.py* file contains Python code that generates Fortran code for the Livermore Solver. 
+
+**Note:** This module is not yet included into the build (next paragraph)
+
 # Build and user manual
 
 ## Preprocessing
@@ -29,14 +39,15 @@ For easy use, the package has been compiled for both Windows and Linux (see *Bui
 
 ## Livermore solver integration
 
-Currently, the package only provides preformatted files for solver integration, so you need to open *driver.f90* and paste the resulting ODE and Jacobian into the FEX and JEX subroutine calls respectively. Also, in the main text body, you need to provide other variables, like initial values and tolerances for each specie. After that, the *compile* bash file can be used to compile the *dlsode.f* and *driver.f90* files into an executable *program* file using ifort compiler.
+The *driver_constructor.py* file generates a *driver.f90* Fortran file that can be compiled (alongside *dlsode.f*) using the *compile* bash file into an executable *program* file using ifort compiler.
 
 # Future development
 
 Below is the list of future features that are to be considered and developed:
-- [ ] Scalability and performance testing
-- [ ] Solver variables configurator
-- [ ] Automatic Livermore Solver integration
+- [x] Scalability and performance testing
+- [x] Solver variables configurator
+- [x] Automatic Livermore Solver integration
+  - [ ] Include in the build
 - [ ] Unified ODE and Jacobian standard (not solver-specific)
 - [ ] ODE and Jacobian standard to solver-specific syntax translators
   - [ ] Livermore Solver
