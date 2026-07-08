@@ -11,8 +11,8 @@ reactions:
       - 3_C
     reversible: True
     rates:
-      - k1
-      - k-1
+      - 3D2
+      - 2D0
   - reagents:
       - 1_A
       - 3_C
@@ -20,5 +20,5 @@ reactions:
       - 2_B
     reversible: True
     rates:
-      - k2
-      - k-2
+      - 1D0
+      - 2D4

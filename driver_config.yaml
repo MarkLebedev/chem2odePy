@@ -11,10 +11,11 @@ initial conditions:
 - 1D0
 start time: 0D0
 
-#initial conditions - initial reagent abundances
-#ITOL - 1 or 2 according as ATOL (below) is a scalar or an array
-#RTOL - relative tolerance
-#ATOL - absolute tolerance
-#
-#initial conditions, start time, RTOL, ATOL and end time in fortran-style floats (nDm = n*10^m - double precision /e.g 1.3D3/)
-#defaul paramerters are included
+    #initial conditions - initial reagent abundances
+    #ITOL - 1 or 2 according as ATOL (below) is a scalar or an array
+    #RTOL - relative tolerance
+    #ATOL - absolute tolerance
+    #
+    #initial conditions, start time, RTOL, ATOL and end time in fortran-style floats (nDm = n*10^m - double precision /e.g 1.3D3/)
+    #defaul paramerters are included
+    

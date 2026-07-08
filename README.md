@@ -27,19 +27,21 @@ Currently, the package includes 3 main modules for simulation preparation:
 ## Solver Fortran code generator
 
 *driver_config_generator.py* file contains Python code that generates a config file with soma variables needed for the simulations. The resulting file (*driver_config.yaml*) includes some default values that can be corrected.
-*driver_constructor.py* file contains Python code that generates Fortran code for the Livermore Solver. 
+*driver_constructor.py* file contains Python code that generates Fortran code for the Livermore Solver. Takes *ode.txt*, *jacobian.txt* and *driver_config.yaml* as input. The result is a *driver.f90* file (based on *driver_template.f90*) which is to be compiled and ran with the Livermore Solver (see next paragraph).
 
-**Note:** This module is not yet included into the build (next paragraph)
+**Note:** This module is not yet included into the Linux build (see next paragraph).
 
 # Build and user manual
 
 ## Preprocessing
 
-For easy use, the package has been compiled for both Windows and Linux (see *Build* folder). To generate the ODE and Jacobian, first fill out the *chemistry.yaml* file with the needed chemical network, then run the appropriate files for your operating system in sequence (*chem2ode_Win.exe* and *ode2jacobian_Win.exe* for Windows or *chem2ode_Linux* and *ode2jacobian_Linux* for Linux). After running the files, you should have *ode.txt* and *jacobian.txt* files in the same folder. For windows, use *Full_Win.exe* to launch both files (better performance).
+For easy use, the package has been compiled for Windows as a one-file build, Linux coming soon (see *Build* folder). Running *program_win.exe* ~~or *program_linux.exe*~~ will launch a command-line wizard for calling necessary functions in the correct order. 
+
+**Note:** First, you need to generate the ODE, Jacobian and config files, then generate the Livermore driver file. Otherwise, an error will occur.
 
 ## Livermore solver integration
 
-The *driver_constructor.py* file generates a *driver.f90* Fortran file that can be compiled (alongside *dlsode.f*) using the *compile* bash file into an executable *program* file using ifort compiler.
+The final result is a *driver.f90* Fortran file that can be compiled (alongside *dlsode.f*) using the *compile* bash file into an executable *program* file using ifort compiler (see *Livermore Solver* folder).
 
 # Future development
 
