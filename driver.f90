@@ -4,6 +4,7 @@ DOUBLE PRECISION  T, Y(3), YDOT(3)
 YDOT(1) = -6.0D2*Y(1)*Y(1)*Y(2) +4.0D0*Y(3)*Y(3)*Y(3) -1.0D0*Y(1)*Y(3)*Y(3)*Y(3) +2.0D4*Y(2)*Y(2)
 YDOT(2) = -3.0D2*Y(1)*Y(1)*Y(2) +2.0D0*Y(3)*Y(3)*Y(3) +2.0D0*Y(1)*Y(3)*Y(3)*Y(3) -4.0D4*Y(2)*Y(2)
 YDOT(3) = +9.0D2*Y(1)*Y(1)*Y(2) -6.0D0*Y(3)*Y(3)*Y(3) -3.0D0*Y(1)*Y(3)*Y(3)*Y(3) +6.0D4*Y(2)*Y(2)
+
 RETURN
 END
 
@@ -34,10 +35,10 @@ Y(3) = 1D0
 T = 0D0
 TOUT = 1D0
 ITOL = 2
-RTOL = 1.D-4
-Y(1) = 1D-6
-Y(2) = 1D-6
-Y(3) = 1D-6
+RTOL = 1D-4
+ATOL(1) = 1D-6
+ATOL(2) = 1D-6
+ATOL(3) = 1D-6
 ITASK = 1
 ISTATE = 1
 IOPT = 0

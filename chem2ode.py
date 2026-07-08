@@ -27,7 +27,7 @@ def main():
         output_string += f'YDOT({i}) ='
         for r in range(len(chemistry['reactions'])):
             for reagent in chemistry['reactions'][r]['reagents']:
-                if i in reagent:
+                if i == reagent.split("_")[1]:
                     if re.search(r"\d*D\d*", chemistry['reactions'][r]['rates'][0]):
                         output_string += f' -{fmult(reagent.split('_')[0], chemistry['reactions'][r]['rates'][0])}'
                     else:
@@ -36,7 +36,7 @@ def main():
                         output_string += power(f'*Y({reagent.split('_')[1]})', int(reagent.split('_')[0]))
                     break
             for product in chemistry['reactions'][r]['products']:
-                if i in product:
+                if i == product.split("_")[1]:
                     if re.search(r"\d*D\d*", chemistry['reactions'][r]['rates'][0]):
                         output_string += f' +{fmult(product.split('_')[0], chemistry['reactions'][r]['rates'][0])}'
                     else:
@@ -48,7 +48,7 @@ def main():
                 temp_reagents = chemistry['reactions'][r]['products']
                 temp_products = chemistry['reactions'][r]['reagents']
                 for reagent in temp_reagents:
-                    if i in reagent:
+                    if i == reagent.split("_")[1]:
                         if re.search(r"\d*D\d*", chemistry['reactions'][r]['rates'][1]):
                             output_string += f' -{fmult(reagent.split('_')[0], chemistry['reactions'][r]['rates'][1])}'
                         else:
@@ -57,7 +57,7 @@ def main():
                             output_string += power(f'*Y({reagent.split('_')[1]})', int(reagent.split('_')[0]))
                         break
                 for product in temp_products:
-                    if i in product:
+                    if i == product.split("_")[1]:
                         if re.search(r"\d*D\d*", chemistry['reactions'][r]['rates'][1]):
                             output_string += f' +{fmult(product.split('_')[0], chemistry['reactions'][r]['rates'][1])}'
                         else:

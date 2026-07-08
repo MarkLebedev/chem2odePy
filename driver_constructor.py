@@ -25,7 +25,7 @@ def main():
 
     atols = ''
     for i in range(len(config['ATOLS'])):
-        atols += f'Y({i+1}) = {config['ATOLS'][i]}\n'
+        atols += f'ATOL({i+1}) = {config['ATOLS'][i]}\n'
 
     yline = ""
     for y in ylist:
@@ -42,6 +42,8 @@ def main():
     driver_template = driver_template.replace("!ITOL", f'ITOL = {config['ITOL']}')
     driver_template = driver_template.replace("!RTOL", f'RTOL = {config['RTOL']}')
     driver_template = driver_template.replace("!ATOLS (N)", atols.strip())
+    driver_template = driver_template.replace("!LRW", str(22 +  9*neq + neq**2))
+    driver_template = driver_template.replace("!LIW", str(20 +  neq))
 
     with open('driver.f90', 'w') as file:
         file.write(driver_template)

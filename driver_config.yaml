@@ -3,7 +3,7 @@ ATOLS:
 - 1D-6
 - 1D-6
 ITOL: 2
-RTOL: 1.D-4
+RTOL: 1D-4
 end time: 1D0
 initial conditions:
 - 1D0

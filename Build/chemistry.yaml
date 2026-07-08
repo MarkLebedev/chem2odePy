@@ -1,24 +1,26 @@
 species:
-  - A
-  - B
+  - H2
+  - O2
+  - H2O
   - C
+  - CO2
 reactions:
   -
     reagents:
-      - 2_A
-      - 1_B
+      - 2_H2
+      - 1_O2
     products:
-      - 3_C
-    reversible: True
+      - 2_H2O
+    reversible: False
     rates:
-      - 3D2
-      - 2D0
+      - 3D0
+      - 
   - reagents:
-      - 1_A
-      - 3_C
+      - 1_C
+      - 1_O2
     products:
-      - 2_B
-    reversible: True
+      - 1_CO2
+    reversible: False
     rates:
       - 1D0
-      - 2D4
+      - 
