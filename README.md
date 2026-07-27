@@ -26,16 +26,14 @@ Currently, the package includes 3 main modules for simulation preparation:
 
 ## Solver Fortran code generator
 
-*driver_config_generator.py* file contains Python code that generates a config file with soma variables needed for the simulations. The resulting file (*driver_config.yaml*) includes some default values that can be corrected.
+*driver_config_generator.py* file contains Python code that generates a config file with some variables needed for the simulations. The resulting file (*driver_config.yaml*) includes some default values that can be corrected.
 *driver_constructor.py* file contains Python code that generates Fortran code for the Livermore Solver. Takes *ode.txt*, *jacobian.txt* and *driver_config.yaml* as input. The result is a *driver.f90* file (based on *driver_template.f90*) which is to be compiled and ran with the Livermore Solver (see next paragraph).
-
-**Note:** This module is not yet included into the Linux build (see next paragraph).
 
 # Build and user manual
 
 ## Preprocessing
 
-For easy use, the package has been compiled for Windows as a one-file build, Linux coming soon (see *Build* folder). Running *program_win.exe* ~~or *program_linux.exe*~~ will launch a command-line wizard for calling necessary functions in the correct order. 
+For easy use, the package has been compiled for Windows as a one-file build. Running *main_windows.exe* or *main_linux.exe* will launch a command-line wizard for calling necessary functions in the correct order. 
 
 **Note:** First, you need to generate the ODE, Jacobian and config files, then generate the Livermore driver file. Otherwise, an error will occur.
 
@@ -49,7 +47,7 @@ Below is the list of future features that are to be considered and developed:
 - [x] Scalability and performance testing
 - [x] Solver variables configurator
 - [x] Automatic Livermore Solver integration
-  - [ ] Include in the build
+  - [x] Include in the build
 - [ ] Unified ODE and Jacobian standard (not solver-specific)
 - [ ] ODE and Jacobian standard to solver-specific syntax translators
   - [ ] Livermore Solver
