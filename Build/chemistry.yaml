@@ -1,26 +1,99 @@
 species:
-  - H2
-  - O2
-  - H2O
+  - HE
   - C
-  - CO2
+  - GAMMA
+  - O
+  - NE
+  - MG
+  - SI
+  - NI
 reactions:
   -
     reagents:
-      - 2_H2
-      - 1_O2
+      - 3_HE
     products:
-      - 2_H2O
-    reversible: False
+      - 1_C
+      - 1_GAMMA
+    reversible: True
     rates:
-      - 3D0
-      - 
+      - 1D0
+      - 1D0
   - reagents:
       - 1_C
-      - 1_O2
+      - 1_HE
     products:
-      - 1_CO2
+      - 1_O
+      - 1_GAMMA
+    reversible: True
+    rates:
+      - 1D0
+      - 1D0
+  - reagents:
+      - 1_O
+      - 1_HE
+    products:
+      - 1_NE
+      - 1_GAMMA
+    reversible: True
+    rates:
+      - 1D0
+      - 1D0
+  - reagents:
+      - 1_NE
+      - 1_HE
+    products:
+      - 1_MG
+      - 1_GAMMA
+    reversible: True
+    rates:
+      - 1D0
+      - 1D0
+  - reagents:
+      - 1_MG
+      - 1_HE
+    products:
+      - 1_SI
+      - 1_GAMMA
+    reversible: True
+    rates:
+      - 1D0
+      - 1D0
+  - reagents:
+      - 1_C
+      - 1_C
+    products:
+      - 1_MG
     reversible: False
     rates:
       - 1D0
-      - 
+      -
+  - reagents:
+      - 1_C
+      - 1_O
+    products:
+      - 1_SI
+    reversible: False
+    rates:
+      - 1D0
+      -
+  - reagents:
+      - 1_O
+      - 1_O
+      - 6_HE
+    products:
+      - 1_NI
+      - 6_GAMMA
+    reversible: False
+    rates:
+      - 1D0
+      -
+  - reagents:
+      - 1_SI
+      - 7_HE
+    products:
+      - 1_NI
+      - 7_GAMMA
+    reversible: False
+    rates:
+      - 1D0
+      -
