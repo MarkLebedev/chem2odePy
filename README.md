@@ -48,6 +48,7 @@ Below is the list of future features that are to be considered and developed:
 - [x] Solver variables configurator
 - [x] Automatic Livermore Solver integration
   - [x] Include in the build
+- [ ] GUI for chemical network construction
 - [ ] Unified ODE and Jacobian standard (not solver-specific)
 - [ ] ODE and Jacobian standard to solver-specific syntax translators
   - [ ] Livermore Solver
