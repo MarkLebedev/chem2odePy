@@ -6,7 +6,7 @@ The main purpose of chem2odePy is to streamline and optimize preprocessing steps
 
 ![img.png](img.png)
 
-Currently, the package includes 3 main modules for simulation preparation:
+Currently, the package includes 4 main modules for data preparation and simulation:
 1. Chemical network YAML standard
 2. Chemical network to ODE system translator
 3. ODE system to Jacobian Matrix translator
