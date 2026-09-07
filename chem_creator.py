@@ -1,0 +1,36 @@
+def main():
+    template = """species:
+    - S1
+    - S2
+    - S3
+reactions:
+    -
+        reagents:
+          - Nr1_R1
+          - Nr2_R2
+        products:
+          - Np1_P1
+          - Np2_P2
+        reversible: True
+        rates:
+          - k1
+          - k-1
+    -
+        reagents:
+          - Nr1_R1
+          - Nr2_R2
+        products:
+          - Np1_P1
+          - Np2_P2
+        reversible: False
+        rates:
+          - k2
+          - k-2
+          
+# reagent/product syntaxes - {Number}_{Name}
+# reversible - boolean True/False (capitalized)
+# rates - fortran-style floats (nDm = n*10^m - double precision /e.g 1.3D3/). 2 in case of reversible reactions, otherwise, leave second empty
+# if rates are unknown - use ki/k-i for forward/backward reactions, in this case"""
+
+    with open("chemistry.yaml", "w") as file:
+        file.write(template)

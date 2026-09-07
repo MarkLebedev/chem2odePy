@@ -14,7 +14,11 @@ Currently, the package includes 4 main modules for data preparation and simulati
 
 ## YAML standard
 
-*chemistry_yaml_template.yaml* describes a standardized way of writing down chemical networks using YAML. This standard is infinitely scalable and allows for flexible further integrations. It is intuitive enough for manual construction and can be easily parsed programmatically. *chemistry.yaml* file presents an example of an abstract chemistry network with 3 species and 2 reversible reactions.
+After running the program for the first time, a *chemistry.yaml* file will be created, which describes a standardized way of writing down chemical networks using YAML and is served as a template for chemical network construction. This standard is infinitely scalable and allows for flexible further integrations. It is intuitive enough for manual construction and can be easily parsed programmatically.
+
+*chemistry_example.yaml* is an example of a complete chemical network.
+
+*chem_creator.py* file contains Python code that generates the template *chemistry.yaml* file 
 
 ## Network to ODE translator
 
@@ -27,15 +31,15 @@ Currently, the package includes 4 main modules for data preparation and simulati
 ## Solver Fortran code generator
 
 *driver_config_generator.py* file contains Python code that generates a config file with some variables needed for the simulations. The resulting file (*driver_config.yaml*) includes some default values that can be corrected.
-*driver_constructor.py* file contains Python code that generates Fortran code for the Livermore Solver. Takes *ode.txt*, *jacobian.txt* and *driver_config.yaml* as input. The result is a *driver.f90* file (based on *driver_template.f90*) which is to be compiled and ran with the Livermore Solver (see next paragraph).
+*driver_constructor.py* file contains Python code that generates Fortran code for the Livermore Solver and a template for the driver file. Takes *ode.txt*, *jacobian.txt* and *driver_config.yaml* as input. The result is a *driver.f90* file which is to be compiled and ran with the Livermore Solver (see next paragraph).
 
 # Build and user manual
 
 ## Preprocessing
 
-For easy use, the package has been compiled for Windows as a one-file build. Running *main_windows.exe* or *main_linux.exe* will launch a command-line wizard for calling necessary functions in the correct order. 
+For easy use, the package has been compiled for Windows as a one-file build. Running *main_windows.exe* or *main_linux* will launch a command-line wizard for creating a project directory and calling necessary functions in the correct order. 
 
-**Note:** First, you need to generate the ODE, Jacobian and config files, then generate the Livermore driver file. Otherwise, an error will occur.
+**Note:** First, you need to generate and edit the chemistry file, then the ODE, Jacobian and config files, then generate the Livermore driver file. Otherwise, an error will occur.
 
 ## Livermore solver integration
 
