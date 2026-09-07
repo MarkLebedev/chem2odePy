@@ -1,5 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import yaml
+
+import plotly.express as px
 
 def convert_to_float(number):
     first = number.split('D')[0]
@@ -13,6 +16,9 @@ data = []
 with open('a.out', 'r') as file:
     for line in file:
         data.append(line.strip('\n').replace("  ", " "))
+
+stream = open('chemistry.yaml', 'r')
+chemistry = yaml.load(stream, Loader=yaml.Loader)
 
 data = data[:-2]
 datalist = []
@@ -28,5 +34,10 @@ df = pd.DataFrame(datalist)
 
 print(df)
 
-plt.plot(df)
-plt.show()
+print(chemistry['species'])
+
+fig = px.line(df, line_shape="spline", labels=chemistry['species'])
+fig.show()
+
+# plt.plot(df)
+# plt.show()
