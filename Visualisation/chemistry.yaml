@@ -1,0 +1,109 @@
+species:
+  - H
+  - H2
+  - O2
+  - O
+  - OH
+  - H2O
+  - CO
+  - C
+  - CO2
+  - C2
+  - SI
+  - SIO
+  - SO2
+  - S
+  - N2
+  - N
+reactions:
+  -
+    reagents:
+      - 1_H2
+    products:
+      - 1_H
+      - 1_H
+    reversible: False
+    rates:
+      - 0.38D-4
+      - 
+  - reagents:
+      - 1_O2
+    products:
+      - 1_O
+      - 1_O
+    reversible: False
+    rates:
+      - 0.38D-4
+      - 
+  - reagents:
+      - 1_OH
+    products:
+      - 1_O
+      - 1_H
+    reversible: False
+    rates:
+      - 0.38D-4
+      - 
+  - reagents:
+      - 1_H2O
+    products:
+      - 1_OH
+      - 1_H
+    reversible: False
+    rates:
+      - 0.38D-4
+      - 
+  - reagents:
+      - 1_CO
+    products:
+      - 1_C
+      - 1_O
+    reversible: False
+    rates:
+      - 0.38D-4
+      - 
+  - reagents:
+      - 1_CO2
+    products:
+      - 1_CO
+      - 1_O
+    reversible: False
+    rates:
+      - 0.38D-4
+      - 
+  - reagents:
+      - 1_C2
+    products:
+      - 1_C
+      - 1_C
+    reversible: False
+    rates:
+      - 0.38D-4
+      - 
+  - reagents:
+      - 1_SIO
+    products:
+      - 1_SI
+      - 1_O
+    reversible: False
+    rates:
+      - 0.38D-4
+      - 
+  - reagents:
+      - 1_SO2
+    products:
+      - 1_S
+      - 1_O2
+    reversible: False
+    rates:
+      - 0.38D-4
+      - 
+  - reagents:
+      - 1_N2
+    products:
+      - 1_N
+      - 1_N
+    reversible: False
+    rates:
+      - 0.38D-4
+      - 

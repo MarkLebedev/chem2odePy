@@ -1,8 +1,7 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 import yaml
-
 import plotly.express as px
+import plotly.graph_objs as go
 
 def convert_to_float(number):
     first = number.split('D')[0]
@@ -13,7 +12,7 @@ def convert_to_float(number):
 data = []
 
 
-with open('a.out', 'r') as file:
+with open('../a.out', 'r') as file:
     for line in file:
         data.append(line.strip('\n').replace("  ", " "))
 
@@ -31,13 +30,7 @@ for i in range(len(datalist)):
         datalist[i][j] = convert_to_float(datalist[i][j])
 
 df = pd.DataFrame(datalist)
+df.columns = chemistry['species'][8:]
 
-print(df)
-
-print(chemistry['species'])
-
-fig = px.line(df, line_shape="spline", labels=chemistry['species'])
-fig.show()
-
-# plt.plot(df)
-# plt.show()
+fig = px.line(df, line_shape="spline", labels=chemistry['species'], markers = True)
+fig.write_html("plot.html")
